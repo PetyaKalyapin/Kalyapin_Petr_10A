@@ -1,7 +1,12 @@
-Python 3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)] on win32
-Type "help", "copyright", "credits" or "license()" for more information.
->>> a = input("Введите имя:")
-... b = input("Введите фамилию:")
-... c = input("Введите год рождения:")
-... d = b[:3].upper() + a[-2:].upper() + c[-2:]
-... print(f"Сотрудник: {a} {b}, {c} г.р.")
+a = int(input())
+b = a // 100
+c = a % 100 // 10
+d = a % 10
+a1 = b + c
+b1 = c + d
+n = 0
+if a1 > b1:
+    n = str(a1)+str(b1)
+else:
+    n = str(b1)+str(a1)
+print(int(n)) 
