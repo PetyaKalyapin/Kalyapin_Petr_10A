@@ -1,8 +1,34 @@
-Python 3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)] on win32
-Type "help", "copyright", "credits" or "license()" for more information.
->>> import re
-... a = input("Введите идентификатор:")
-... b = r'^[^\s@]+@[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?)+$'
-... if re.fullmatch(b, a):
-...     print(f"ИДЕНТИФИКАТОР {a} ВАЛИДЕН")
-... else:
+import re
+a = input("Введите пароль:")
+c = 0
+d = []
+if len(a) >= 8:
+    c += 2
+else:
+    d.append("Длина")
+if re.search(r'[A-Z]', a):
+    c += 2
+else:
+    d.append("Заглавные буквы")
+if re.search(r'[a-z]', a):
+    c += 2
+else:
+    d.append("Строчные буквы")
+if re.search(r'\d', a):
+    c += 2
+else:
+    d.append("Цифры")
+if re.search(r'[!@#$%^&*\(\)]', a):
+    c += 2
+else:
+    d.append("Специальные символы")
+if c == 10:
+        print("ПАРОЛЬ НАДЕЖНЫЙ: Поздравляем! Пароль соответствует стандарту безопасности.")
+        print(f"Рейтинг надежности: 10/10")
+else:
+    print("ПАРОЛЬ НЕНАДЕЖНЫЙ: Требуются улучшения.")
+    print("Проблемы:")
+    for d in d:
+        print(f"- {d}")
+    print(f"Рейтинг надежности: {c}/10")
+    
