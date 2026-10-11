@@ -1,7 +1,19 @@
-Python 3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)] on win32
-Type "help", "copyright", "credits" or "license()" for more information.
->>> a = input("Введите имя:")
-... b = input("Введите фамилию:")
-... c = input("Введите год рождения:")
-... d = b[:3].upper() + a[-2:].upper() + c[-2:]
-... print(f"Сотрудник: {a} {b}, {c} г.р.")
+print("Введите строку лога:")
+a = input()
+b = len(a) 
+e = a.lower().replace(" ", "") 
+d = {}
+for f in e:                       
+    if f in d:
+        d[f] += 1
+    else:
+        d[f] = 1
+g = max(d.values())     
+h = []
+for f in d:
+    if d[f] == g:
+        h.append(f)
+print(f"Строка: {a}")
+print(f"Длина строки: {b} символов")
+print(f"Уникальных символов: {len(d)}")
+print(f"Самый частый символ(ы): {','.join(h)} ({g} раз)")
